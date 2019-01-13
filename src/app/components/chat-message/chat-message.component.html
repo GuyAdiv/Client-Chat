@@ -1,0 +1,13 @@
+<div>
+    <div class="msgItem" 
+        [ngClass]="[ isRootClient ? 'msgRoot' : '', isMsgOwner ? 'msgOwner' : '']"
+        >
+        <strong class="msgSenderName" *ngIf="!isMsgOwner" 
+                [ngStyle]="{'color': color}">{{username}}</strong>
+        <span class="msgTime">{{ time | date:"h:mm a" }}</span>
+        <div>
+            <span class="msgItemText">{{message}}</span>
+        </div>
+    </div>
+</div>
+

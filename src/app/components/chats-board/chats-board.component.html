@@ -1,0 +1,21 @@
+<div class="msg-info-container" *ngIf="chatClients.length == 0">
+  <div class="row">
+          <div class="col-12">
+                <div id="messageInfo" 
+                        class="alert alert-secondary" 
+                        role="alert">There are no connected users.</div>
+          </div>
+  </div>
+        
+       
+</div>
+
+<div class="container">
+    <div class="row">
+        <app-chat-room *ngFor="let client of chatClients" 
+                [chatClientData] = "client">
+        </app-chat-room>
+    </div>
+</div>
+
+

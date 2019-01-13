@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="alert alert-info" role="alert">
+        «{{chatClient.nickname}}» &#9679;
+        <span id="countOnlineUsers">{{countOnlineUsers}}</span> users online.
+    </div>
+    <div class="chat-box" #chatBox>
+        <div id="waitingMsg" 
+            *ngIf="countOnlineUsers == 1" 
+            class="alert alert-warning" 
+            role="alert">Waiting for more people to join.</div>
+        <div *ngIf="countOnlineUsers > 1">
+            <app-chat-message #chatMessagesComponents *ngFor="let msg of chatMessages"
+            [chatMessage]="msg"
+            [isMsgOwner]="msg.sender.nickname==chatClient.nickname"
+            (MessageCreated)="onMessageCreated()"
+            ></app-chat-message>
+        </div>
+    </div>
+    <hr>
+    <div *ngIf="countOnlineUsers > 1">
+        <div>
+        <textarea [(ngModel)]="userMessage" 
+                name="message" 
+                id="message" 
+                class="form-control" 
+                placeholder="Type your message"
+                #txtUserMsg></textarea>
+        </div>
+        <div class="buttons-bar" style="text-align:center">
+        <button type="button" 
+                class="btn btn-success" 
+                (click)="sendMessage()"
+                [disabled]="!userMessage">Send</button>
+        <button type="button" class="btn btn-danger" (click)="userLogout()">Logout</button>
+        </div>
+    </div>
+</div>

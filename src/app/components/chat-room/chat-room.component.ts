@@ -51,19 +51,18 @@ export class ChatRoomComponent implements OnInit {
   }
 
   scrollMessageBoxToBottom(){
-    console.log("scrolling");
     this.chatBoxElement.nativeElement.scrollTop = this.chatBoxElement.nativeElement.scrollHeight;
   }
 
   userLogout(){
-    console.log("user logout.");
+    //console.log("user logout.");
 
     this.chatRoomService.logoutClient(this.chatClient);
   }
 
   sendMessage(){
 
-    console.log("user message: " + this.userMessage);
+    //console.log("user message: " + this.userMessage);
 
     let msg:ChatMessage = new ChatMessage(this.chatClient, this.userMessage);
     this.chatRoomService.addNewMessage(msg);

@@ -23,11 +23,16 @@ export class ChatRoomService{
 
     addNewClient(newClient:ChatClient)
     {
+        const countOnlineUsers:number = this.getCountOnlineUsers();
         if (newClient)
         {
             this.connectedClients.push(newClient);
-            let msg:string = newClient.nickname + " has joined."
-            this.sendRootMessage(msg);
+            
+            if (countOnlineUsers > 0){
+                let msg:string = newClient.nickname + " has joined.";
+                this.sendRootMessage(msg);
+            }
+
             this.connectedClientsChanged.next(this.getConnectedClients());
         }
     }
@@ -49,7 +54,7 @@ export class ChatRoomService{
         return isRemoved;
     }
 
-    sendRootMessage(msg:string){
+    private sendRootMessage(msg:string){
 
         if (msg){
             this.addNewMessage(new ChatMessage(this.chatRoot, msg));

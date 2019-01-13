@@ -64,12 +64,16 @@ export class ChatRoomService{
 
     logoutClient(chatClient:ChatClient)
     {
-        let msg = chatClient.nickname + " left.";
-        let isRemoved = this.removeClientByNickname(chatClient.nickname);
+        let isRemoved:boolean = false;
+
+        if (chatClient){
+            let msg = chatClient.nickname + " left.";
+            isRemoved = this.removeClientByNickname(chatClient.nickname);
         
-        if (isRemoved)
-        {
-            this.sendRootMessage(msg);
+            if (isRemoved)
+            {
+                this.sendRootMessage(msg);
+            }
         }
     }
 

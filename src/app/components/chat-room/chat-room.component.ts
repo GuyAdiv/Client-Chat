@@ -55,14 +55,11 @@ export class ChatRoomComponent implements OnInit {
   }
 
   userLogout(){
-    //console.log("user logout.");
 
     this.chatRoomService.logoutClient(this.chatClient);
   }
 
   sendMessage(){
-
-    //console.log("user message: " + this.userMessage);
 
     let msg:ChatMessage = new ChatMessage(this.chatClient, this.userMessage);
     this.chatRoomService.addNewMessage(msg);

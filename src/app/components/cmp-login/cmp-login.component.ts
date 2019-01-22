@@ -43,9 +43,4 @@ export class CmpLoginComponent implements OnInit {
     this.submitted.emit(chatClient);
   }
 
-  validateNickName(nickname:string)
-  {
-    return this.chatRoomService.isNicknameExist(nickname);
-  }
-
 }

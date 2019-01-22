@@ -30,7 +30,6 @@ export class ChatMessageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    //console.log("message created");
     this.messageCreated.emit(null);
   }
 }

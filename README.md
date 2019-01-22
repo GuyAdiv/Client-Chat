@@ -1,3 +1,6 @@
+# Project requirements
+Read the file Epic Digital Challenge.docx
+
 # ChatApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.1.
